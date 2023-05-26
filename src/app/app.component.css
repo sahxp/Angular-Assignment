@@ -11,9 +11,13 @@ body {
 }
 .main {
   display: flex;
+  flex-direction: column-reverse;
   justify-content: center;
   align-items: center;
   width: 100%;
+}
+.main div {
+  margin: 10px;
 }
 .container {
   max-width: 400px;
@@ -88,7 +92,9 @@ h2 {
 
 /* booking information */
 .booking-info {
-  background-color: lightgray;
-  padding: 10px;
-  border-radius: 4px;
+  background-color: rgb(187, 187, 187);
+  padding: 20px 10px;
+  font-family: 'Poppins', sans-serif;
+  border-radius: 10px;
+  max-width: 400px;
 }

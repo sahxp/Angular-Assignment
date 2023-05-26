@@ -6,7 +6,7 @@
   <div class="seats">
     <div *ngFor="let seat of seats; let i = index" [class.booked]="!seat"></div>
   </div>
-</div>
+
 <div class="booking-form">
   <label for="numSeats">Number of Seats:</label>
   <input type="number" id="numSeats" [(ngModel)]="numSeats" min="1" />
@@ -15,4 +15,5 @@
 
 <div *ngIf="selectedSeats.length > 0" class="booking-info">
   <p>Booked seats: {{ selectedSeats.join(', ') }}</p>
+</div>
 </div>
