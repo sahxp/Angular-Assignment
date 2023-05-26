@@ -4,50 +4,63 @@
   padding: 0;
   box-sizing: border-box;
 }
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap');
 
-/* Apply a modern font family */
 body {
-  font-family: 'Arial', sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
-
-/* Add some spacing and center the content */
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
 .container {
   max-width: 400px;
   margin: 0 auto;
   padding: 20px;
 }
 
-/* Style the heading */
+/* heading */
 h2 {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80px;
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 20px;
+  font-family: 'Poppins', sans-serif;
 }
 
-/* Style the seats container */
+/* seats container */
 .seats {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   margin-bottom: 20px;
+  max-width: 460px;
 }
 
 /* Style individual seat */
 .seats div {
   width: 50px;
   height: 30px;
-  background-color: black;
+  background-color: green;
   margin: 5px;
-  border-radius: 4px;
+  border-radius: 10px;
 }
 
-/* Style the booked seats */
+/* booked seats */
 .seats div.booked {
   background-color: red;
 }
 
-/* Style the booking form */
+/* booking form */
 .booking-form {
+  justify-content: center;
+  width: 100%;
   display: flex;
   align-items: center;
   margin-bottom: 20px;
@@ -60,18 +73,20 @@ h2 {
 .booking-form input[type='number'] {
   padding: 5px;
   width: 50px;
+  border-radius: 10px;
+  margin-right: 10px;
 }
 
 .booking-form button {
-  padding: 5px 10px;
+  padding: 10px 20px;
   background-color: dodgerblue;
   color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: 10px;
   cursor: pointer;
 }
 
-/* Style the booking information */
+/* booking information */
 .booking-info {
   background-color: lightgray;
   padding: 10px;
