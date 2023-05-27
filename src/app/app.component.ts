@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'my-app',
@@ -11,8 +12,9 @@ export class AppComponent {
   lastRowSeats = 3;
   seats: boolean[] = [];
   selectedSeats: number[] = [];
+  numSeats: number;
 
-  constructor() {
+  constructor(private snackBar: MatSnackBar) {
     this.initializeSeats();
   }
 
@@ -22,18 +24,21 @@ export class AppComponent {
     }
   }
 
+  toggleSeat(index: number) {
+    this.seats[index] = !this.seats[index];
+  }
+
   bookSeats(numSeats: number) {
     if (numSeats <= 0 || numSeats > this.seatsPerRow) {
-      console.log('Invalid number of seats.');
+      this.openSnackBar('Invalid number of seats.');
       return;
     }
     if (numSeats > 7) {
-      console.log('You cannot book more than 7 seats at a time.');
-      window.alert('You cannot book more than 7 seats at a time.');
+      this.openSnackBar('You cannot book more than 7 seats at a time.');
       return;
     }
 
-    let startSeatIndex = -1;
+    let startSeatIndex = -1; // Declare and initialize startSeatIndex here
     let availableSeatsInRow = 0;
 
     for (let i = 0; i < this.totalSeats; i++) {
@@ -50,30 +55,23 @@ export class AppComponent {
     }
 
     if (startSeatIndex === -1) {
-      console.log(
-        'Seats not available in a single row. Booking in nearby seats.'
-      );
-
-      for (let i = 0; i < this.totalSeats; i++) {
-        if (this.seats[i]) {
-          startSeatIndex = i;
-          break;
-        }
-      }
-    }
-
-    if (startSeatIndex === -1) {
-      console.log('No seats available.');
+      this.openSnackBar('No available seats.');
       return;
     }
 
-    const bookedSeats = [];
     for (let i = startSeatIndex; i < startSeatIndex + numSeats; i++) {
-      this.seats[i] = false; // mark seat as booked
-      bookedSeats.push(i + 1);
+      this.seats[i] = false;
+      this.selectedSeats.push(i + 1);
     }
 
-    this.selectedSeats = bookedSeats;
-    console.log('Booked seats:', this.selectedSeats);
+    this.openSnackBar(`Booked ${numSeats} seats.`);
+  }
+
+  openSnackBar(message: string) {
+    this.snackBar.open(message, 'Close', {
+      duration: 3000, // Duration in milliseconds
+      horizontalPosition: 'center',
+      verticalPosition: 'bottom',
+    });
   }
 }
