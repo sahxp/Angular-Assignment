@@ -70,11 +70,10 @@ export class AppComponent {
 
   openSnackBar(message: string) {
     const config = new MatSnackBarConfig();
-    config.duration = 3000;
+    config.duration = 90000;
     config.horizontalPosition = 'center';
     config.verticalPosition = 'bottom';
-    
-config.panelClass = ['snack-bar-custom'];
+    config.panelClass = ['snack-bar-custom'];
     config.panelClass = ['snack-bar-custom', 'highest-z-index'];
   
     const snackBarRef = this.snackBar.open(message, 'Close', config);
