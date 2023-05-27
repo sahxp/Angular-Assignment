@@ -8,8 +8,13 @@
 
 body {
   font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
 }
+
 .main {
+  position: absolute;
+  top: 80px;
   display: flex;
   flex-direction: column-reverse;
   justify-content: center;
@@ -26,16 +31,28 @@ body {
 }
 
 /* heading */
-h2 {
-  width: 100%;
+.header {
+  position: fixed;
+  top: 5;
+  left: 5%;
+  border-radius: 15px;
+  background: rgb(233, 233, 233);
+  color: black;
+  width: 90%;
+  height: 50px;
   display: flex;
   align-items: center;
-  justify-content: center;
-  height: 80px;
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 20px;
+  justify-content: start;
+  z-index: 99;
+  
+}
+h2 {
+  text-transform: uppercase;
+  font-weight: 900;
+  font-size: 14px;
   font-family: 'Poppins', sans-serif;
+  color: white;
+  padding-left: 20px;
 }
 
 /* seats container */
@@ -44,16 +61,26 @@ h2 {
   flex-wrap: wrap;
   justify-content: center;
   margin-bottom: 20px;
-  max-width: 460px;
+  flex-basis: auto;
+  border: 5px solid rgb(220, 220, 220);
+  border-radius: 20px;
+  padding: 10px;
+  background: rgb(243, 243, 243);
+  min-width: 340px;
+  max-width: 340px;
 }
 
 /* Style individual seat */
 .seats div {
-  width: 50px;
+  width: 30px;
   height: 30px;
   background-color: green;
   margin: 5px;
-  border-radius: 10px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
 }
 
 /* booked seats */
@@ -71,6 +98,8 @@ h2 {
 }
 
 .booking-form label {
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
   margin-right: 10px;
 }
 
@@ -83,18 +112,20 @@ h2 {
 
 .booking-form button {
   padding: 10px 20px;
-  background-color: dodgerblue;
+  background-color: rgb(62, 40, 255);
   color: white;
   border: none;
   border-radius: 10px;
   cursor: pointer;
+  font-weight: 800;
 }
 
 /* booking information */
 .booking-info {
-  background-color: rgb(187, 187, 187);
+  border-radius: 15px;
+  background: rgb(233, 233, 233);
+  color: black;
   padding: 20px 10px;
   font-family: 'Poppins', sans-serif;
-  border-radius: 10px;
   max-width: 400px;
 }
