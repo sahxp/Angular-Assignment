@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { MatSnackBar, MatSnackBarConfig, } from '@angular/material/snack-bar';
-
+import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'my-app',
@@ -70,13 +69,12 @@ export class AppComponent {
 
   openSnackBar(message: string) {
     const config = new MatSnackBarConfig();
-    config.duration = 90000;
+    config.duration = 3000;
     config.horizontalPosition = 'center';
     config.verticalPosition = 'bottom';
     config.panelClass = ['snack-bar-custom'];
     config.panelClass = ['snack-bar-custom', 'highest-z-index'];
-  
+
     const snackBarRef = this.snackBar.open(message, 'Close', config);
   }
-  
 }
